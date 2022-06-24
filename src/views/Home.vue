@@ -9,6 +9,9 @@ import AddTask from '../components/AddTask.vue'
 
 export default {
     name: 'Home',
+    props: {
+        showTask : Boolean
+    },
     components: {
         Task,
         AddTask,
@@ -19,6 +22,17 @@ export default {
         }
     },
     methods: {
+        async addTask(task) {
+            const res = await fetch('http://localhost:3000/tasks', {
+                method: 'POST',
+                headers: {
+                'Content-type': 'application/json',
+                },
+                body: JSON.stringify(task),
+            })
+            const data = await res.json()
+            this.tasks = [...this.tasks, data]
+        },
         async toggleReminder(id){
             const togReminder = await this.fetchTask(id);
             const updReminder = {
