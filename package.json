@@ -16,7 +16,8 @@
     "pinia": "^2.0.14",
     "serve": "^13.0.2",
     "vue": "^3.2.36",
-    "vue-router": "^4.0.13"
+    "vue-router": "^4.0.13",
+    "vue-scripts": "^0.0.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.3.3",
